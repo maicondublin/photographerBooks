@@ -1,5 +1,5 @@
 //https://www.npmjs.com/package/bcrypt
-const user = require('')
+const user = require('../models/user')
 const bcrypt = require('bcrypt')
 
 const insert = async function( data ) {
