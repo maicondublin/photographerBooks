@@ -16,9 +16,9 @@ const eventController = require('../controller/events.ctrl')
 events.get('/events', authenticate, async function(req, res){
     try {
         var events = await eventController.loadAll()
-        rest.send(events)
+        res.send(events)
     } catch (error) {
-        rest.status(401).send({message:'Error to insert new event!'})
+        res.status(401).send({message:'Error to insert new event!'})
     }
 })
 //post => used to insert data.

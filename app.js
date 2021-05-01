@@ -4,9 +4,10 @@ const  bodyParcer = require('body-parser')
 const events = require('./routes/events')
 const user = require('./routes/user')
 const login = require('./routes/login')
- const app = express()
+const app = express()
+const cors = require('cors')
 
-
+app.use(cors())
 app.use(bodyParcer)
 app.use(bodyParcer.urlencoded({extended:false}))
 app.use(events)
