@@ -1,3 +1,5 @@
+//https://javascript.info/async-await
+//https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await
 const events = require('')
 
 const insert = async function(data){

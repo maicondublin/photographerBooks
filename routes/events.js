@@ -1,3 +1,5 @@
+//https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await
+//https://javascript.info/async-await
 const router = require('express').Router
 const events = router()
 
