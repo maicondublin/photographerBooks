@@ -1,6 +1,6 @@
 //https://kb.objectrocket.com/mongo-db/simple-mongoose-and-node-js-example-1007
 //https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
-const mongoose = require('')
+const mongoose = require('../db/database')
 
 const eventsSchema = new mongoose.Schema({
     data_hour: {
