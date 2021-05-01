@@ -1,11 +1,9 @@
-
-
 const router = require('express').router
 const user = router
 
 
 //controller
-
+const userController = require('../controller/user.ctrl')
 
 //rest API
 
