@@ -5,7 +5,7 @@ const events = router()
 
 
 //middleware
-
+const authenticate = require('../middleware/authenticate')
 
 //controller
 const eventController = require('../controller/events.ctrl')
@@ -13,7 +13,7 @@ const eventController = require('../controller/events.ctrl')
 //rest_API
 
 //get => used to select data 
-events.get('/events', async function(req, res){
+events.get('/events', authenticate, async function(req, res){
     try {
         var events = await eventController.loadAll()
         rest.send(events)
@@ -22,7 +22,7 @@ events.get('/events', async function(req, res){
     }
 })
 //post => used to insert data.
-events.post('/events', async function(req, res){
+events.post('/events',  authenticate, async function(req, res){
     try {
         var newEvent = await eventController.insert(req.body)
         res.send(newEvent)
@@ -31,7 +31,7 @@ events.post('/events', async function(req, res){
     }
 })
 //put => used to update data.
-events.put('/events', async function(req, res){
+events.put('/events', authenticate, async function(req, res){
     try {
         var newEvent = await eventController.update(req.body)
         res.send(newEvent)
@@ -40,7 +40,7 @@ events.put('/events', async function(req, res){
     }
 })
 //delete => used to remove data.
-events.delete('/events', async function(req, res){
+events.delete('/events', authenticate, async function(req, res){
     try {
         var newEvent = await eventController.remove(req.body)
         res.send(newEvent)
