@@ -1,3 +1,4 @@
+require('dotenv').config()   //https://www.npmjs.com/package/dotenv
 const express = require('express')
 const  bodyParcer = require('body-parser')
 const events = require('./routes/events')
