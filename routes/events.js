@@ -6,40 +6,44 @@ const events = router()
 
 
 //controller
-
+const eventController = require('../controller/events.ctrl')
 
 //rest_API
 
 //get => used to select data 
-events.get('events', async function(req, rest){
+events.get('/events', async function(req, res){
     try {
-        
+        var events = await eventController.loadAll()
+        rest.send(events)
     } catch (error) {
-        
+        rest.status(401).send({message:'Error to insert new event!'})
     }
 })
 //post => used to insert data.
-events.get('events', async function(req, rest){
+events.post('/events', async function(req, res){
     try {
-        
+        var newEvent = await eventController.insert(req.body)
+        res.send(newEvent)
     } catch (error) {
-        
+        res.status(401).send({message:'Error to insert a new event!'})
     }
 })
 //put => used to update data.
-events.get('events', async function(req, rest){
+events.put('/events', async function(req, res){
     try {
-        
+        var newEvent = await eventController.update(req.body)
+        res.send(newEvent)
     } catch (error) {
-        
+        res.status(401).send({message:'Error to update  event!'})
     }
 })
 //delete => used to remove data.
-events.get('events', async function(req, rest){
+events.delete('/events', async function(req, res){
     try {
-        
+        var newEvent = await eventController.remove(req.body)
+        res.send(newEvent)
     } catch (error) {
-        
+        res.status(401).send({message:'Error to remove event!'})
     }
 })
 
